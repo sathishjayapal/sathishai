@@ -1,0 +1,66 @@
+spring:
+  ai:
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        datasource:
+          url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/sathishaipg}
+          username: ${VECTOR_DATABASE_USERNAME:postgres}
+          password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
+          driver-class-name: org.postgresql.Driver
+          hikari:
+            connection-timeout: 30000
+            maximum-pool-size: 10
+        dimensions: 768
+    google:
+      genai:
+        api-key: ${GOOGLE_API_KEY}
+        project-id: ${GOOGLE_PROJECT_ID}
+        embedding:
+          apiKey: ${GOOGLE_API_KEY}
+          project-id: ${GOOGLE_PROJECT_ID}
+        location: ${GOOGLE_LOCATION}
+  datasource:
+    primary:
+      url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5473/sathishai}
+      username: ${JDBC_DATABASE_USERNAME:postgres}
+      password: ${JDBC_DATABASE_PASSWORD:P4ssword!}
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        connection-timeout: 30000
+        maximum-pool-size: 10
+    vector:
+      url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/sathishaipg}
+      username: ${VECTOR_DATABASE_USERNAME:postgres}
+      password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        connection-timeout: 30000
+        maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        id:
+          new_generator_mappings: true
+  messages:
+    basename: messages,messagesWeb
+  docker:
+    compose:
+      lifecycle-management: start-only
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+gg:
+  jte:
+    usePrecompiledTemplates: true
