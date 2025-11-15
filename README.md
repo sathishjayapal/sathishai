@@ -35,3 +35,4 @@ If required, a Docker image can be created with the Spring Boot plugin. Add `SPR
 ```
 mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=me.sathish/rag-app-svc
 ```
+ CLosin the comments here
