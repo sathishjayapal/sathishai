@@ -12,7 +12,6 @@ application-local.yml
 *.iws
 *.iml
 *.ipr
-.env
 
 ## VS Code
 .vscode/
