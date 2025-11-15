@@ -35,9 +35,3 @@ If required, a Docker image can be created with the Spring Boot plugin. Add `SPR
 ```
 mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=me.sathish/rag-app-svc
 ```
-
-## Further readings
-
-* [Maven docs](https://maven.apache.org/guides/index.html)  
-* [Spring Boot reference](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)  
-* [Spring Data JPA reference](https://docs.spring.io/spring-data/jpa/reference/jpa.html)
