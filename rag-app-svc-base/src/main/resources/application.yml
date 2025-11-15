@@ -1,35 +1,11 @@
-
 spring:
-  ai:
-    vectorstore:
-      pgvector:
-        initialize-schema: true
-        datasource:
-          url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/sathishaipg}
-          username: ${VECTOR_DATABASE_USERNAME:postgres}
-          password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
-          driver-class-name: org.postgresql.Driver
-          hikari:
-            connection-timeout: 30000
-            maximum-pool-size: 10
-        dimensions: 768
-    google:
-      genai:
-        api-key: ${GOOGLE_API_KEY}
-        project-id: ${GOOGLE_PROJECT_ID}
-        embedding:
-          apiKey: ${GOOGLE_API_KEY}
-          project-id: ${GOOGLE_PROJECT_ID}
-        location: ${GOOGLE_LOCATION}
   datasource:
-    vector:
-      url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/sathishaipg}
-      username: ${VECTOR_DATABASE_USERNAME:postgres}
-      password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
-      driver-class-name: org.postgresql.Driver
-      hikari:
-        connection-timeout: 30000
-        maximum-pool-size: 10
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/rag-app-svc}
+    username: ${JDBC_DATABASE_USERNAME:postgres}
+    password: ${JDBC_DATABASE_PASSWORD:<<YOUR_PASSWORD>>}
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
   jpa:
     hibernate:
       ddl-auto: validate
@@ -80,5 +56,3 @@ app:
   mail:
     from: satsmadison@gmail.com
     displayName: Sathish from Madison WI
-server:
-  port: 9080

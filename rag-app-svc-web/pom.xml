@@ -7,7 +7,7 @@
         <artifactId>rag-app-svc</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>web</artifactId>
+    <artifactId>rag-app-svc-web</artifactId>
 
     <properties>
         <start-class>me.sathish.rag_app_svc.base.RagAppSvcApplication</start-class>
@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>base</artifactId>
+            <artifactId>rag-app-svc-base</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,7 +57,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>base</artifactId>
+            <artifactId>rag-app-svc-base</artifactId>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <version>${project.version}</version>

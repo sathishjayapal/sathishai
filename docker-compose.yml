@@ -1,9 +1,9 @@
 services:
-  postgrespg:
-    image: pgvector/pgvector:pg16
+  postgres:
+    image: postgres:18.0
     environment:
-      - POSTGRES_DB=sathishaipg
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=P4ssword!
+    - POSTGRES_DB=rag-app-svc
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=P4ssword!
     ports:
-      - 5463:5432
+    - 5433:5432
