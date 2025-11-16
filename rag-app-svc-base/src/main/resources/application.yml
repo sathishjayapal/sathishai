@@ -1,18 +1,24 @@
 
 spring:
-  ai:
-    vectorstore:
-      pgvector:
-        initialize-schema: true
-        datasource:
-          url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/sathishaipg}
-          username: ${VECTOR_DATABASE_USERNAME:postgres}
-          password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
-          driver-class-name: org.postgresql.Driver
-          hikari:
-            connection-timeout: 30000
-            maximum-pool-size: 10
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+  datasource:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: validate
+    vector:
+      url: ${VECTOR_DATABASE_URL:jdbc:postgresql://localhost:5463/rag-app-svc}
+      username: ${VECTOR_DATABASE_USERNAME:postgres}
+      password: ${VECTOR_DATABASE_PASSWORD:P4ssword!}
+      driver-class-name: org.postgresql.Driver
+
+      hikari:
+        connection-timeout: 30000
+        maximum-pool-size: 10
         dimensions: 768
+  ai:
     google:
       genai:
         api-key: ${GOOGLE_API_KEY}
