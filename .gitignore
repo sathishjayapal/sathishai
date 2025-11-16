@@ -7,11 +7,13 @@ application-local.yml
 *.log
 .DS_Store
 .env
+
 ## IntelliJ IDEA
 .idea
 *.iws
 *.iml
 *.ipr
+.env
 
 ## VS Code
 .vscode/
