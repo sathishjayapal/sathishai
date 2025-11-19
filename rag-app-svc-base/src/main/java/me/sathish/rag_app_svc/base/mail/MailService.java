@@ -29,7 +29,7 @@ public class MailService {
 
     @Async
     public void sendMail(final String mailTo, final String subject, final String html) {
-        log.info("sending mail {} to {}", subject, mailTo);
+        log.error("sending mail {} to {}", subject, mailTo);
 
         sendMailWithTemplate(mailTo, subject, "mail-template", Map.of());
 
